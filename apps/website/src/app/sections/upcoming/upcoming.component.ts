@@ -1,6 +1,7 @@
 import { Component,inject,signal } from '@angular/core';
 import { Activity } from '@angularph-monorepo/models';
 import { DataService } from '../../shared/services/data.service';
+import { ContenfulService } from '../../shared/services/contenful.service';
 
 @Component({
   selector: 'upcoming',
@@ -9,11 +10,12 @@ import { DataService } from '../../shared/services/data.service';
   styleUrl: './upcoming.component.scss'
 })
 export class UpcomingComponent {
-  dataService = inject(DataService);
- 
-  eventItems = signal<Array<Activity>>([]);
-
+  public dataService = inject(ContenfulService);
+  public eventItems = signal<Array<Activity>>([]);
+          
   ngOnInit(): void { 
-    this.eventItems.set(this.dataService.eventItems.sort().splice(0,1)); 
+    this.dataService.getEvents().then((events) => {
+      this.eventItems.set(events.sort().splice(0, 1));
+    });
   }
 }
