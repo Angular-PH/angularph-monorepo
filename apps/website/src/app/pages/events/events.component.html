@@ -1,0 +1,23 @@
+  
+<h1 class="page-title color-gradient2 fade-in " > Events</h1>
+ 
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-7">
+    @for (item of eventItems(); track $index) {
+    <div class="card bg-base-80  shadow-sm   fade-in   "  >
+        <figure>
+          <img 
+            class="w-100"
+            src="{{item.thumbnail}}"
+            alt="{{item.title}}" />
+        </figure>
+        <div class="card-body "> 
+          <h2 class="card-title">{{item.title}}</h2>
+          <p class="t-xs">{{item.description}}</p>
+          <p class="t-xs">{{item.datetimestamp}}</p>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary btn-sm">View</button>
+          </div>
+        </div>
+      </div> 
+}
+</div>

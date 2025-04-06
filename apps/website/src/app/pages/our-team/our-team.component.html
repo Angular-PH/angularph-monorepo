@@ -1,0 +1,41 @@
+
+
+
+<h1 class="page-title color-gradient-blue">Meet Our Team</h1>
+
+<div class="grid sm:grid-cols-1 lg:grid-cols-2  gap-4">
+    <div> 
+ 
+        <p class="page-paragraph-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum dolores corrupti hic! 
+            Impedit suscipit, harum nihil consectetur eaque accusamus reprehenderit assume </p>
+ 
+    </div>
+    <!-- ... -->
+    <div>
+        
+      
+       
+
+    </div>
+  </div>
+
+
+
+  <br><br>
+  
+  
+
+  <div class=""><!---community leads section-->
+   
+    <h1 class="page-sub-title color-gradient-pink ">Community Leads</h1> 
+    <div class="grid  sm:grid-cols-2 lg:grid-cols-4 mt-10 gap-4"> 
+        @for(item of communityLeadItems(); track $index)
+        { 
+            <avatar class="items-center justify-center" 
+                name="{{item.name}}"
+                description="{{item.description}}" 
+                thumbnail="{{item.thumbnail}}" /> 
+        }       
+   </div>
+  </div> <!---community leads section-->
+   

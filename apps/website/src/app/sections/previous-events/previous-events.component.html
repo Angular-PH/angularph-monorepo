@@ -1,0 +1,20 @@
+
+<div class="mt-20 lg:p-10 ">
+
+
+
+<h1 class="page-sub-title color-gradient-purple">Previous Events</h1>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 text-left">
+
+        @for(item of eventItems();track $index) { 
+            <div>  
+                <img src="{{item.thumbnail}}" /> 
+                <h3 class="mt-5 mb-1 text-lg">{{item.title}}</h3>  
+                <p class="text-xs">{{item.description}}</p>
+                <span class="text-xs text-secondary">{{item.datetimestamp}}</span>  
+                <br><br><button class="btn btn-primary btn-sm">Watch Replay</button>
+            </div>  
+        }
+    </div>  
+</div>
