@@ -2,6 +2,10 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+* {
+    color: #ffffff;
+}
+
 
 body {
 	background: linear-gradient(-65deg, #351229, #5B4842, #261E2A,#130A19 );
