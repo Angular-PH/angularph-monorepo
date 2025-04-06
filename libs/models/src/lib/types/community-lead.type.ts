@@ -4,7 +4,6 @@ export type CommunityLead = {
     name: string;
     description : string;  
     thumbnail : string;
-    datetimestamp :Date; 
 }
 
 

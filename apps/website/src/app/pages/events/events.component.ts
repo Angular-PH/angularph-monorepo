@@ -1,6 +1,7 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { Activity } from '@angularph-monorepo/models';
 import { DataService } from '../../shared/services/data.service';
+import { ContenfulService } from '../../shared/services/contenful.service';
 
 
 @Component({
@@ -8,16 +9,18 @@ import { DataService } from '../../shared/services/data.service';
   standalone: true,
   imports: [],
   templateUrl: './events.component.html',
-  styleUrl: './events.component.css'
+  styleUrl: './events.component.scss'
 })
 export class EventsComponent implements OnInit{
 
-  dataService = inject(DataService);
+  dataService = inject(ContenfulService);
 
   eventItems = signal<Array<Activity>>([]);
     
   ngOnInit(): void { 
-    this.eventItems.set(this.dataService.eventItems); 
+    this.dataService.getEvents().then((events) => {
+      this.eventItems.set(events);
+    });
   }
  
 }

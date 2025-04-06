@@ -17,6 +17,7 @@ export class BlogsComponent {
   blogItems = signal<Array<Blog>>([]);
     
   ngOnInit(): void { 
-    this.blogItems.set(this.dataService.blogItems); 
+    // implemnt with contenful
+    this.blogItems.set([]); 
   }
 }

@@ -12,8 +12,10 @@
                 <img src="{{item.thumbnail}}" /> 
                 <h3 class="mt-5 mb-1 text-lg">{{item.title}}</h3>  
                 <p class="text-xs">{{item.description}}</p>
-                <span class="text-xs text-secondary">{{item.datetimestamp}}</span>  
-                <br><br><button class="btn btn-primary btn-sm">Watch Replay</button>
+                <span class="text-xs text-secondary">{{item.date}}</span>  
+                @if(item.replay) {
+                    <br><br><button (click)="watchReplay(item.replay)" class="btn btn-primary btn-sm">Watch Replay</button>
+                }
             </div>  
         }
     </div>  

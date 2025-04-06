@@ -1,6 +1,7 @@
 import { Component, inject, OnInit,signal } from '@angular/core';
 import { Activity } from '@angularph-monorepo/models';
 import { DataService } from '../../shared/services/data.service';
+import { ContenfulService } from '../../shared/services/contenful.service';
    
 @Component({
   selector: 'previous-events',
@@ -9,13 +10,17 @@ import { DataService } from '../../shared/services/data.service';
   styleUrl: './previous-events.component.scss'
 })
 export class PreviousEventsComponent implements OnInit {
-
-    dataService = inject(DataService);
- 
-    eventItems = signal<Array<Activity>>([]);
-
-    ngOnInit(): void { 
-      this.eventItems.set(this.dataService.eventItems.sort().slice(1,5)); 
+  public dataService = inject(ContenfulService);
+  public eventItems = signal<Array<Activity>>([]);
+        
+  public ngOnInit(): void { 
+      this.dataService.getEvents().then((events) => {
+        this.eventItems.set(events);
+      });
     }
+  
+  public watchReplay(replay: string) {
+    window.open(replay, '_blank');
+  }
 
 }
