@@ -1,11 +1,13 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { Activity } from '@angularph-monorepo/models';
 import { ContenfulService } from '../../shared/services/contenful.service';
+import { DatePipe } from '@angular/common';
+import { sortByDate } from '../../shared/utilities/date';
 
 @Component({
   selector: 'app-events',
   standalone: true,
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './events.component.html',
   styleUrl: './events.component.scss',
 })
@@ -16,11 +18,7 @@ export class EventsComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService.getEvents().then((events) => {
-      this.eventItems.set(
-        events.sort(
-          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-        )
-      );
+      this.eventItems.set(sortByDate<Activity>(events, 'desc'));
     });
   }
 }
