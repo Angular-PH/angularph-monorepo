@@ -16,7 +16,23 @@ export class UpcomingComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService.getEvents().then((events) => {
-      this.eventItems.set(sortByDate<Activity>(events, 'desc').splice(0, 1));
+      const filteredEvents = this.filterUpcomingEvent(events);
+      this.eventItems.set(filteredEvents);
     });
+  }
+
+  private filterUpcomingEvent(events: Activity[]): Activity[] {
+    const today = new Date();
+
+    const futureEvents = events.filter((event) => {
+      const eventDate = new Date(event.date);
+      return eventDate > today;
+    });
+
+    if (futureEvents.length === 0) {
+      return [];
+    }
+
+    return sortByDate<Activity>(futureEvents, 'desc').splice(0, 1);
   }
 }

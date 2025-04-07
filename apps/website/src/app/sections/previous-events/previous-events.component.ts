@@ -16,11 +16,27 @@ export class PreviousEventsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.dataService.getEvents().then((events) => {
-      this.eventItems.set(sortByDate<Activity>(events, 'desc'));
+      const filteredEvents = this.filterPreviousEvents(events);
+      this.eventItems.set(filteredEvents);
     });
   }
 
   public watchReplay(replay: string) {
     window.open(replay, '_blank');
+  }
+
+  private filterPreviousEvents(events: Activity[]): Activity[] {
+    const today = new Date();
+
+    const pastEvents = events.filter((event) => {
+      const eventDate = new Date(event.date);
+      return eventDate <= today;
+    });
+
+    if (pastEvents.length === 0) {
+      return [];
+    }
+
+    return sortByDate<Activity>(pastEvents, 'desc');
   }
 }
