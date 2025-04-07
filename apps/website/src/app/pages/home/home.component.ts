@@ -9,16 +9,22 @@ import { DataService } from '../../shared/services/data.service';
 
 @Component({
   selector: 'app-home',
-  imports: [FoundingComponent, OurnumbersComponent, UpcomingComponent, OurteamComponent, PreviousEventsComponent,JoinourfbComponent],
+  imports: [
+    FoundingComponent,
+    OurnumbersComponent,
+    UpcomingComponent,
+    OurteamComponent,
+    PreviousEventsComponent,
+    JoinourfbComponent,
+  ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  dataService = inject(DataService); 
-  description = signal("");  
+  dataService = inject(DataService);
+  description = signal('');
 
-  ngOnInit(): void {   
+  ngOnInit(): void {
     this.description.set(this.dataService.communityDetails.description);
   }
-
 }
