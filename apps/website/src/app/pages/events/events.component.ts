@@ -3,24 +3,25 @@ import { Activity } from '@angularph-monorepo/models';
 import { DataService } from '../../shared/services/data.service';
 import { ContenfulService } from '../../shared/services/contenful.service';
 
-
 @Component({
   selector: 'app-events',
   standalone: true,
   imports: [],
   templateUrl: './events.component.html',
-  styleUrl: './events.component.scss'
+  styleUrl: './events.component.scss',
 })
-export class EventsComponent implements OnInit{
-
+export class EventsComponent implements OnInit {
   dataService = inject(ContenfulService);
 
   eventItems = signal<Array<Activity>>([]);
-    
-  ngOnInit(): void { 
+
+  ngOnInit(): void {
     this.dataService.getEvents().then((events) => {
-      this.eventItems.set(events);
+      this.eventItems.set(
+        events.sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        )
+      );
     });
   }
- 
 }
