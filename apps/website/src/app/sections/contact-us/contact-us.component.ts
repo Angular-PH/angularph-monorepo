@@ -4,8 +4,8 @@ import { DataService } from '../../shared/services/data.service';
 @Component({
   selector: 'app-contact-us',
   imports: [],
-  templateUrl: './contactus.component.html',
-  styleUrl: './contactus.component.css',
+  templateUrl: './contact-us.component.html',
+  styleUrl: './contact-us.component.css',
 })
 export class ContactusComponent implements OnInit {
   dataService = inject(DataService);

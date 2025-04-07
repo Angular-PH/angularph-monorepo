@@ -4,7 +4,6 @@ import { ContenfulService } from '../../shared/services/contenful.service';
 
 @Component({
   selector: 'app-previous-events',
-  imports: [],
   templateUrl: './previous-events.component.html',
   styleUrl: './previous-events.component.scss',
 })
@@ -12,9 +11,15 @@ export class PreviousEventsComponent implements OnInit {
   public dataService = inject(ContenfulService);
   public eventItems = signal<Array<Activity>>([]);
 
+  private sortEvents(events: Activity[]): Activity[] {
+    return events.sort((a: Activity, b: Activity) => {
+      return new Date(a.date).getTime() - new Date(b.date).getTime();
+    });
+  }
+
   public ngOnInit(): void {
     this.dataService.getEvents().then((events) => {
-      this.eventItems.set(events);
+      this.eventItems.set(this.sortEvents(events));
     });
   }
 
