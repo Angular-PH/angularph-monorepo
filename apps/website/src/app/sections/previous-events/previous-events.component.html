@@ -7,7 +7,7 @@
       <img src="{{ item.thumbnail }}" alt="{{ item.title }}" />
       <h3 class="mt-5 mb-1 text-lg">{{ item.title }}</h3>
       <p class="text-xs">{{ item.description }}</p>
-      <span class="text-xs text-secondary">{{ item.date }}</span>
+      <span class="text-xs text-secondary">{{ item.date | date: "short" }}</span>
       @if(item.replay) {
       <br /><br /><button
         (click)="watchReplay(item.replay)"

@@ -1,11 +1,12 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { Activity } from '@angularph-monorepo/models';
 import { ContenfulService } from '../../shared/services/contenful.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-events',
   standalone: true,
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './events.component.html',
   styleUrl: './events.component.scss',
 })
