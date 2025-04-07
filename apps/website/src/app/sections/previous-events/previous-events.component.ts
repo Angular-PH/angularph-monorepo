@@ -2,7 +2,7 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { Activity } from '@angularph-monorepo/models';
 import { ContenfulService } from '../../shared/services/contenful.service';
 import { DatePipe } from '@angular/common';
-import { sortByDate } from '../../shared/utilities/date';
+import { filterByTimeframe, TimeframeType } from '../../shared/utilities/date';
 
 @Component({
   selector: 'app-previous-events',
@@ -16,7 +16,8 @@ export class PreviousEventsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.dataService.getEvents().then((events) => {
-      this.eventItems.set(sortByDate<Activity>(events, 'desc'));
+      const previousEvents = filterByTimeframe(events, TimeframeType.PAST);
+      this.eventItems.set(previousEvents);
     });
   }
 

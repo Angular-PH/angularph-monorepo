@@ -2,7 +2,11 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { Activity } from '@angularph-monorepo/models';
 import { ContenfulService } from '../../shared/services/contenful.service';
 import { DatePipe } from '@angular/common';
-import { sortByDate } from '../../shared/utilities/date';
+import {
+  filterByTimeframe,
+  sortByDate,
+  TimeframeType,
+} from '../../shared/utilities/date';
 
 @Component({
   selector: 'app-upcoming',
@@ -16,7 +20,10 @@ export class UpcomingComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService.getEvents().then((events) => {
-      this.eventItems.set(sortByDate<Activity>(events, 'desc').splice(0, 1));
+      const upcomingEvents = filterByTimeframe(events, TimeframeType.FUTURE, {
+        limit: 1,
+      });
+      this.eventItems.set(upcomingEvents);
     });
   }
 }
