@@ -1,27 +1,20 @@
 <div class="grid sm:grid-cols-2 lg:grid-cols-2 mt-30 lg:p-10 gap-10">
-
-    
-        @for(item of eventItems();track $index) { 
-            <div>
-                <h1 class="page-sub-title color-gradient-blue">Upcoming Event</h1>
-                <br>
-                <h3 class=" color-gradient-blue text-lg">{{item.title}}</h3>
-                <br><br>
-                <p class="text-sm"> 
-                    {{item.description}}
-                </p>
-                <br>
-                <span class="text-xs"> 
-                    {{item.date}}
-                </span>
-            </div>
-            <div>
-                
-                <img class="mx-auto" [src]="item.thumbnail" /> 
-            </div>
-        }
-            
+  @for(item of eventItems();track $index) {
+  <div>
+    <h1 class="page-sub-title color-gradient-blue">Upcoming Event</h1>
+    <br />
+    <h3 class="color-gradient-blue text-lg">{{ item.title }}</h3>
+    <br /><br />
+    <p class="text-sm">
+      {{ item.description }}
+    </p>
+    <br />
+    <span class="text-xs">
+      {{ item.date }}
+    </span>
+  </div>
+  <div>
+    <img class="mx-auto" [src]="item.thumbnail" [alt]="item.title" />
+  </div>
+  }
 </div>
-
-
-    

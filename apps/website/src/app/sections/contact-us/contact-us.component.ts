@@ -5,7 +5,7 @@ import { DataService } from '../../shared/services/data.service';
   selector: 'app-contact-us',
   imports: [],
   templateUrl: './contact-us.component.html',
-  styleUrl: './contact-us.component.scss',
+  styleUrl: './contact-us.component.css',
 })
 export class ContactusComponent implements OnInit {
   dataService = inject(DataService);

@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 })
 export class AvatarComponent {
   name = input<string>();
-  description =  input<string>();
-  thumbnail =  input<string>();
-  id  =  input<number>(); 
+  description = input<string>();
+  thumbnail = input<string>();
+  id = input<number>();
 }

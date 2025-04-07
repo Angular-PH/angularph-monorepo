@@ -8,9 +8,8 @@ describe('JoinourfbComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [JoinourfbComponent]
-    })
-    .compileComponents();
+      imports: [JoinourfbComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(JoinourfbComponent);
     component = fixture.componentInstance;
