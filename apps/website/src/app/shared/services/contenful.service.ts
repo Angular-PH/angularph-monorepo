@@ -1,7 +1,7 @@
+import { APP_CONFIG } from '../../../environments/app-config.token';
 import { inject, Injectable } from '@angular/core';
 import { Activity, CommunityLead } from '@angularph-monorepo/models';
-import { APP_CONFIG } from 'apps/website/src/environments/app-config.token';
-import { createClient, Entry, EntryCollection, EntrySkeletonType } from 'contentful';
+import { createClient, EntryCollection, EntrySkeletonType } from 'contentful';
 
 
 @Injectable({
@@ -14,8 +14,6 @@ export class ContenfulService {
     space: this.appConfig.CONTENTFUL_SPACE,
     accessToken: this.appConfig.CONTENTFUL_ACCESS_TOKEN
   });
-
-  constructor() { }
 
   public getEvents(query?: object): Promise<Activity[]> {
     return this.cdaClient.getEntries(Object.assign({

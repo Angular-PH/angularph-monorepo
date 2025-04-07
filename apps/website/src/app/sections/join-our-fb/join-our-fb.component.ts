@@ -1,13 +1,13 @@
-import { Component,signal,inject } from '@angular/core';
+import { Component,signal,inject, OnInit } from '@angular/core';
 import { DataService } from '../../shared/services/data.service';
  
 @Component({
-  selector: 'join-our-fb',
+  selector: 'app-join-our-fb',
   imports: [],
   templateUrl: './join-our-fb.component.html',
   styleUrl: './join-our-fb.component.scss'
 })
-export class JoinourfbComponent {
+export class JoinourfbComponent implements OnInit {
 
   dataService = inject(DataService);
   description = signal(""); 

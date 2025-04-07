@@ -6,18 +6,18 @@ import { DataService } from '../../shared/services/data.service';
 
 @Component({
   selector: 'app-blogs',
-  standalone:true,
+  standalone: true,
   imports: [],
   templateUrl: './blogs.component.html',
-  styleUrl: './blogs.component.scss'
+  styleUrl: './blogs.component.scss',
 })
-export class BlogsComponent {
+export class BlogsComponent implements OnInit {
   dataService = inject(DataService);
 
   blogItems = signal<Array<Blog>>([]);
-    
-  ngOnInit(): void { 
+
+  ngOnInit(): void {
     // implemnt with contenful
-    this.blogItems.set([]); 
+    this.blogItems.set([]);
   }
 }

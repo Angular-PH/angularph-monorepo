@@ -1,6 +1,5 @@
 import { Component, inject,OnInit,signal } from '@angular/core';
 import { AvatarComponent } from '@angularph-monorepo/ui';
-import { DataService } from '../../shared/services/data.service';
 import { CommunityLead } from '@angularph-monorepo/models';
 import { ContenfulService } from '../../shared/services/contenful.service';
 
@@ -8,7 +7,7 @@ import { ContenfulService } from '../../shared/services/contenful.service';
 
 
 @Component({
-  selector: 'our-team', 
+  selector: 'app-our-team', 
   imports: [AvatarComponent],
   templateUrl: './our-team.component.html',
   styleUrl: './our-team.component.scss',

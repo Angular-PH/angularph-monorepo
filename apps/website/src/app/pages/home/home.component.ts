@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { FoundingComponent } from '../../sections/founding/founding.component';
 import { JoinourfbComponent } from '../../sections/join-our-fb/join-our-fb.component';
 import { OurnumbersComponent } from '../../sections/our-numbers/our-numbers.component';
@@ -13,7 +13,7 @@ import { DataService } from '../../shared/services/data.service';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   dataService = inject(DataService); 
   description = signal("");  
 

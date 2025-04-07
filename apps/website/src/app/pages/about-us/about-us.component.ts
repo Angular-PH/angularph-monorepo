@@ -1,4 +1,4 @@
-import { Component,inject,signal } from '@angular/core';
+import { Component,inject,OnInit,signal } from '@angular/core';
 import { FoundingComponent } from '../../sections/founding/founding.component';
 import { DataService } from '../../shared/services/data.service';
 
@@ -8,7 +8,7 @@ import { DataService } from '../../shared/services/data.service';
   templateUrl: './about-us.component.html',
   styleUrl: './about-us.component.scss',
 })
-export class AboutusComponent { 
+export class AboutusComponent implements OnInit{ 
   
    dataService = inject(DataService); 
    missionDescription  = signal("");

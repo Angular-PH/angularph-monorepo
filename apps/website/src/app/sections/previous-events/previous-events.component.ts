@@ -1,10 +1,9 @@
 import { Component, inject, OnInit,signal } from '@angular/core';
 import { Activity } from '@angularph-monorepo/models';
-import { DataService } from '../../shared/services/data.service';
 import { ContenfulService } from '../../shared/services/contenful.service';
    
 @Component({
-  selector: 'previous-events',
+  selector: 'app-previous-events',
   imports: [],
   templateUrl: './previous-events.component.html',
   styleUrl: './previous-events.component.scss'

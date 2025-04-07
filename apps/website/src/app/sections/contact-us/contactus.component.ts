@@ -1,13 +1,13 @@
-import { Component,signal,inject } from '@angular/core';
+import { Component,signal,inject, OnInit } from '@angular/core';
 import { DataService } from '../../shared/services/data.service';
  
 @Component({
-  selector: 'contact-us',
+  selector: 'app-contact-us',
   imports: [],
   templateUrl: './contactus.component.html',
   styleUrl: './contactus.component.css'
 })
-export class ContactusComponent {
+export class ContactusComponent implements OnInit{
    
    dataService = inject(DataService);  
    contactItems = signal<any[]>([]);

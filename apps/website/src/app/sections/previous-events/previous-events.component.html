@@ -9,7 +9,7 @@
 
         @for(item of eventItems();track $index) { 
             <div>  
-                <img src="{{item.thumbnail}}" /> 
+                <img src="{{item.thumbnail}}" alt="{{item.title}}" /> 
                 <h3 class="mt-5 mb-1 text-lg">{{item.title}}</h3>  
                 <p class="text-xs">{{item.description}}</p>
                 <span class="text-xs text-secondary">{{item.date}}</span>  

@@ -2,7 +2,7 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { DataService } from '../../shared/services/data.service';
 
 @Component({
-  selector: 'our-numbers',
+  selector: 'app-our-numbers',
   imports: [],
   templateUrl: './our-numbers.component.html',
   styleUrl: './our-numbers.component.scss'
