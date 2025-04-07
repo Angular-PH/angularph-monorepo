@@ -31,22 +31,32 @@ export class DataService {
       {
         type: 'Email',
         value: 'angularph@gmail.com',
+        thumbnail: './images/gmail-logo.png',
+        url: 'mailto:angularph@gmail.com',
       },
       {
         type: 'Facebook Page',
         value: 'Angular PH',
+        thumbnail: './images/facebook-logo.png',
+        url: 'https://www.facebook.com/AngularPhilippines',
       },
       {
         type: 'Facebook Group',
         value: 'Angular Philippines',
+        thumbnail: './images/facebook-group-logo.png',
+        url: 'https://www.facebook.com/groups/1133816916630570',
       },
       {
         type: 'LinkedIn',
-        value: 'https://www.linkedin.com/company/angular-philippines',
+        value: 'Angular Philippines',
+        thumbnail: './images/linked-in-logo.png',
+        url: 'https://www.linkedin.com/company/angular-philippines/',
       },
       {
         type: 'WhatsApp',
         value: '82834826',
+        thumbnail: './images/whatsapp-logo.png',
+        url: 'https://wa.me/63982834826',
       },
     ],
   };
