@@ -16,9 +16,7 @@ export class UpcomingComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService.getEvents().then((events) => {
-      this.eventItems.set(
-        sortByDate<Activity>(events, 'desc')
-      );
+      this.eventItems.set(sortByDate<Activity>(events, 'desc'));
     });
   }
 }

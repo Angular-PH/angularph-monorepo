@@ -14,12 +14,9 @@ export class PreviousEventsComponent implements OnInit {
   public dataService = inject(ContenfulService);
   public eventItems = signal<Array<Activity>>([]);
 
-
   public ngOnInit(): void {
     this.dataService.getEvents().then((events) => {
-      this.eventItems.set(
-        sortByDate<Activity>(events, "desc")
-      );
+      this.eventItems.set(sortByDate<Activity>(events, 'desc'));
     });
   }
 
