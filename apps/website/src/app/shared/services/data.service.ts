@@ -52,12 +52,6 @@ export class DataService {
         thumbnail: './images/linked-in-logo.png',
         url: 'https://www.linkedin.com/company/angular-philippines/',
       },
-      {
-        type: 'WhatsApp',
-        value: '82834826',
-        thumbnail: './images/whatsapp-logo.png',
-        url: 'https://wa.me/63982834826',
-      },
     ],
   };
 }
