@@ -1,11 +1,19 @@
 <div class="container fade-in">
   <h1 class="page-title color-gradient1">Contact Us</h1>
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 mt-10 gap-10 gap-4">
+  <div class="grid sm:grid-cols-2 xl:grid-cols-4 mt-10 gap-10 gap-4">
     @for(item of contactItems(); track $index) {
 
-    <div>
+    <div class="flex flex-col items-start">
       <h1 class="page-sub-title">{{ item.type }}</h1>
-      <p>{{ item.value }}</p>
+      <div class="flex flex-row justify-center items-center gap-3">
+        <img
+          class="h-[33px]"
+          src="{{item.thumbnail}}"
+          alt="AngularPH Logo"
+        />
+        <a class="cursor-pointer hover:underline" target="_blank" href="{{item.url}}" >{{ item.value }}</a>
+      </div>
+      
     </div>
     }
   </div>
