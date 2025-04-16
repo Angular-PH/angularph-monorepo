@@ -1,60 +1,58 @@
-<div class="container mx-auto bg-transparent">
-  <div class="navbar">
-    <div class="navbar-start">
-      <div class="dropdown">
-        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h8m-8 6h16"
-            />
-          </svg>
-        </div>
-        <ul
-          tabindex="0"
-          class="menu menu-sm dropdown-content bg-trasparent rounded-box z-1 mt-3 w-52 p-2 shadow"
-        >
-          <li routerLink="/"><a>Home</a></li>
-          <li></li>
-          <li routerLink="/aboutus"><a>About</a></li>
-          <li></li>
-          <li routerLink="/events"><a>Events</a></li>
-          <li></li>
-          <li routerLink="/blogs"><a>Blogs</a></li>
-          <li></li>
-          <li routerLink="/ourteam"><a>Our Team</a></li>
-          <li></li>
-          <li routerLink="/contactus"><a>Contact us</a></li>
-          <li></li>
-        </ul>
+<div class="container mx-auto px-4 relative">
+  <nav class="flex items-center justify-between py-4">
+    <!-- Left: Logo + Hamburger -->
+    <div class="flex items-center space-x-4">
+      <!-- Hamburger with animation (shown on small screens only) -->
+      <div class="lg:hidden">
+        <button (click)="toggleDropdown()" class="text-gray-800 focus:outline-none hamburger-menu" [class.open]="isDropdownOpen">
+          <span class="line line-1"></span>
+          <span class="line line-2"></span>
+          <span class="line line-3"></span>
+        </button>
       </div>
-
-      <img src="images/logo.png" style="height: 90px; width: auto" />
+      <!-- Logo -->
+      <a routerLink="/">
+        <img src="images/logo.png" alt="Logo" class="h-12 w-auto" />
+      </a>
     </div>
-    <div class="navbar-end hidden lg:flex">
-      <ul class="menu menu-horizontal px-1">
-        <li routerLink="/"><a>Home</a></li>
-        <li></li>
-        <li routerLink="/aboutus"><a>About</a></li>
-        <li></li>
-        <li routerLink="/events"><a>Events</a></li>
-        <li>
-          <!-- <li routerLink="/blogs"><a>Blogs</a><li> to implement -->
-        </li>
 
-        <li routerLink="/ourteam"><a>Our Team</a></li>
-        <li></li>
-        <li routerLink="/contactus"><a>Contact us</a></li>
-        <li></li>
+    <ul class="hidden lg:flex space-x-6 text-lg">
+      @for (menu of menuItems; track $index) {
+        <li><a [routerLink]="menu.path" class="relative group">{{menu.label}}
+          <div class="absolute w-full h-0.5 bg-white/80 scale-x-0 group-hover:scale-x-100 transition-transform"></div>
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+
+  @if (isDropdownOpen) {
+    <div class="lg:hidden bg-[#291C2A] h-full fixed w-full absolute top-0 left-0 z-10">
+      <div class="px-4 pt-3 flex-row flex gap-4 items-center">
+        <!-- We no longer need the X SVG here, as the animated hamburger turns into an X -->
+        <button (click)="toggleDropdown()" class="text-gray-800 focus:outline-none hamburger-menu open">
+          <span class="line line-1"></span>
+          <span class="line line-2"></span>
+          <span class="line line-3"></span>
+        </button>
+        <a routerLink="/" class="pt-1">
+          <img src="images/logo.png" alt="Logo" class="h-12 w-auto" />
+        </a>
+      </div>
+      
+      <hr class="mt-4 opacity-50">
+
+      <ul class="flex flex-col space-y-4 text-xl p-4 shadow rounded-md h-full text-center">
+        @for (menu of menuItems; track $index) {
+          <li>
+            <a (click)="closeDropdown(menu.path)" 
+               (keydown.enter)="closeDropdown(menu.path)" 
+               class="block text-gray-700 hover:text-blue-600 cursor-pointer" tabindex="0">
+              {{ menu.label }}
+            </a>
+          </li>
+        }
       </ul>
     </div>
-  </div>
+  }
 </div>
