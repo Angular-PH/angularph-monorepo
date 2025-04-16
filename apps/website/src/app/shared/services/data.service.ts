@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class DataService {
   communityDetails = {
     description:
-      'We are a Non Profit Tech Community who are passionate on organizing events such as meetups, seminars and conferences here in the philippines for developer students and professionals.',
+      'We are a Non Profit Tech Community who are passionate on organizing events such as meetups, seminars and conferences here in the Philippines for developers, students, and professionals.',
     history:
       'Founded on year 2016 by a group of developers where they share the same advocacy in building an organization which has a goal to help other developers in using the latest technologies not just related to Angular and now we are continuously helping fellow developers through our community improve their skills and guide them on the real IT world.',
     historyPhoto: '/photos/foundation.png',

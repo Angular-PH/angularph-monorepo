@@ -5,13 +5,13 @@
     @for(item of eventItems();track $index) {
     <div>
       <img src="{{ item.thumbnail }}" alt="{{ item.title }}" />
-      <h3 class="mt-5 mb-1 text-lg">{{ item.title }}</h3>
-      <p class="text-xs">{{ item.description }}</p>
-      <span class="text-xs text-secondary">{{ item.date | date: "short" }}</span>
+      <h3 class="mt-5 mb-1 text-lg font-bold tracking-wide">{{ item.title }}</h3>
+      <p class="text-xs tracking-wide">{{ item.description }}</p>
+      <span class="text-xs text-secondary font-bold tracking-wide">{{ item.date | date: "short" }}</span>
       @if(item.replay) {
       <br /><br /><button
         (click)="watchReplay(item.replay)"
-        class="btn btn-primary btn-sm"
+        class="btn btn-primary btn-sm tracking-wider"
       >
         Watch Replay
       </button>

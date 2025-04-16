@@ -18,7 +18,7 @@
 
     <ul class="hidden lg:flex space-x-6 text-lg">
       @for (menu of menuItems; track $index) {
-        <li><a [routerLink]="menu.path" class="relative group">{{menu.label}}
+        <li><a [routerLink]="menu.path" class="relative group font-bold tracking-wide">{{menu.label}}
           <div class="absolute w-full h-0.5 bg-white/80 scale-x-0 group-hover:scale-x-100 transition-transform"></div>
           </a>
         </li>
@@ -47,7 +47,7 @@
           <li>
             <a (click)="closeDropdown(menu.path)" 
                (keydown.enter)="closeDropdown(menu.path)" 
-               class="block text-gray-700 hover:text-blue-600 cursor-pointer" tabindex="0">
+               class="block text-gray-700 hover:text-blue-600 cursor-pointer font-bold tracking-wide" tabindex="0">
               {{ menu.label }}
             </a>
           </li>
