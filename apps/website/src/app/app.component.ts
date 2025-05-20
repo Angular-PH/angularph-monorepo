@@ -5,11 +5,11 @@ import { NavbarComponent, FooterComponent } from '@angularph-monorepo/ui';
   selector: 'app-root',
   imports: [RouterOutlet, NavbarComponent, FooterComponent],
   template: `
-    <navbar />
+    <lib-navbar />
     <main class="container mx-auto">
       <router-outlet></router-outlet>
     </main>
-    <footer></footer>
+    <lib-footer/>
   `,
   styles: [],
 })
