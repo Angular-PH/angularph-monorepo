@@ -1,8 +1,7 @@
 import { Component, input } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'avatar',
+  selector: 'lib-avatar',
   imports: [],
   templateUrl: './avatar.component.html',
   styleUrl: './avatar.component.scss',
