@@ -2,12 +2,33 @@
 @import 'tailwindcss';
 @plugin "daisyui";
 
+@font-face {
+  font-family: 'DMSans';
+  src: url('/fonts/DMSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DMSans';
+  src: url('/fonts/DMSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: bold;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: 'DMSans', sans-serif;
+}
+
 * {
   color: #ffffff;
+  // font-family: 'DMSans-bold', sans-serif;
 }
 
 body {
-  background: linear-gradient(-65deg, #351229, #5b4842, #261e2a, #130a19);
+  background: linear-gradient(-65deg, #351229, #473732, #261e2a, #130a19);
   background-size: 400% 400%;
   animation: gradient 60s ease infinite;
   height: 100%;
