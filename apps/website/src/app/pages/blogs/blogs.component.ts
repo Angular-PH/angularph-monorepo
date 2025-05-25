@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { Blog } from '@angularph-monorepo/models';
-import { DataService } from '../../shared/services/data.service';
+import { ContenfulService } from '../../shared/services/contenful.service';
 
 @Component({
   selector: 'app-blogs',
@@ -10,12 +10,14 @@ import { DataService } from '../../shared/services/data.service';
   styleUrl: './blogs.component.scss',
 })
 export class BlogsComponent implements OnInit {
-  dataService = inject(DataService);
+  dataService = inject(ContenfulService);
 
   blogItems = signal<Array<Blog>>([]);
 
   ngOnInit(): void {
     // implemnt with contenful
-    this.blogItems.set([]);
+    this.dataService.getBlogs().then((blogs) => {
+      this.blogItems.set(blogs);
+    });
   }
 }

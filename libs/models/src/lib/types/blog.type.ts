@@ -1,9 +1,8 @@
 export type Blog = {
-  blogid: number;
   title: string;
-  description: string;
+  // description: string;
   body: string;
   thumbnail: string;
-  datetimestamp: Date;
+  date: Date;
   id: number;
 };

@@ -1,6 +1,6 @@
 import { APP_CONFIG } from '../../../environments/app-config.token';
 import { inject, Injectable } from '@angular/core';
-import { Activity, CommunityLead } from '@angularph-monorepo/models';
+import { Activity, Blog, CommunityLead } from '@angularph-monorepo/models';
 import { createClient, EntryCollection, EntrySkeletonType } from 'contentful';
 
 @Injectable({
@@ -44,6 +44,21 @@ export class ContenfulService {
       });
   }
 
+  public getBlogs(query?: object): Promise<Blog[]> {
+    return this.cdaClient
+      .getEntries(
+        Object.assign(
+          {
+            content_type: 'blogs',
+          },
+          query
+        )
+      )
+      .then((res) => {
+        return this.formatBlogs(res);
+      });
+  }
+
   private formatLeads(
     event: EntryCollection<EntrySkeletonType, undefined, string>
   ) {
@@ -82,6 +97,30 @@ export class ContenfulService {
         date: new Date(entry.fields['date'] as string),
         thumbnail: asset?.fields?.file?.url || '',
         replay: entry.fields['replay'] as string,
+      });
+    });
+    return items;
+  }
+
+  private formatBlogs(
+    blog: EntryCollection<EntrySkeletonType, undefined, string>
+  ) {
+    const items: Blog[] = [];
+    blog.items.map((entry, index) => {
+      const asset = blog?.includes?.Asset?.find(
+        (asset) =>
+          asset.sys.id ===
+          (entry?.fields?.['thumbnail'] as { sys: { id: string } })?.sys?.id
+      );
+      console.log(blog.items);
+      const description = (entry.fields['description'] as any).content;
+      items.push({
+        id: index,
+        title: entry.fields['title'] as string,
+        // description: description[0]['description'][0]['value'],
+        date: new Date(entry.fields['date'] as string),
+        thumbnail: asset?.fields?.file?.url || '',
+        body: entry.fields['body'] as string,
       });
     });
     return items;
