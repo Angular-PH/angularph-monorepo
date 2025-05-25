@@ -113,11 +113,11 @@ export class ContenfulService {
           (entry?.fields?.['thumbnail'] as { sys: { id: string } })?.sys?.id
       );
       console.log(blog.items);
-      const description = (entry.fields['description'] as any).content;
+      // const description = (entry.fields['description'] as any).content;
       items.push({
         id: index,
         title: entry.fields['title'] as string,
-        // description: description[0]['description'][0]['value'],
+        description: entry.fields['description'] as string,
         date: new Date(entry.fields['date'] as string),
         thumbnail: asset?.fields?.file?.url || '',
         body: entry.fields['body'] as string,
