@@ -3,11 +3,12 @@ import { Activity } from '@angularph-monorepo/models';
 import { ContenfulService } from '../../shared/services/contenful.service';
 import { DatePipe } from '@angular/common';
 import { sortByDate } from '../../shared/utilities/date';
+import { ScrollAnimationDirective } from '../../shared/directives/scroll-animation.directive';
 
 @Component({
   selector: 'app-events',
   standalone: true,
-  imports: [DatePipe],
+  imports: [DatePipe, ScrollAnimationDirective],
   templateUrl: './events.component.html',
   styleUrl: './events.component.scss',
 })

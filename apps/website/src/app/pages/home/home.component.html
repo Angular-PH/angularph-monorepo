@@ -1,6 +1,10 @@
-<div class="container fade-in">
-  
-  <div class="flex justify-center items-center mt-10 gap-4"> 
+<div class="container">
+  <div
+    class="flex justify-center items-center mt-10 gap-4"
+    appScrollAnimation
+    animationType="fadeIn"
+    animationDuration="1000"
+  >
     <div class=""></div>
     <div class="text-center">
       <img
@@ -34,13 +38,39 @@
   </div>
   <!--grid row-->
 
-  <app-founding />
+  <div
+    appScrollAnimation
+    animationType="fadeIn"
+    animationDuration="800"
+    animationDelay="200"
+  >
+    <app-founding />
+  </div>
 
-  <app-our-numbers />
+  <div
+    appScrollAnimation
+    animationType="fadeInUp"
+    animationDuration="800"
+    animationDelay="200"
+  >
+    <app-our-numbers />
+  </div>
 
-  <app-our-team />
+  <div
+    appScrollAnimation
+    animationType="fadeIn"
+    animationDuration="800"
+    animationDelay="200"
+  >
+    <app-our-team />
+  </div>
 
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 mt-20 gap-4">
+  <div
+    class="grid sm:grid-cols-2 lg:grid-cols-3 mt-20 gap-4"
+    appScrollAnimation
+    animationType="fadeInUp"
+    animationDuration="800"
+  >
     <div>
       <img
         class="mx-auto shadow-primary"
@@ -66,8 +96,29 @@
   </div>
   <!--grid row-->
 
-  <app-upcoming />
-  <app-previous-events />
-  <app-join-our-fb />
+  <div
+    appScrollAnimation
+    animationType="fadeInLeft"
+    animationDuration="800"
+    animationDelay="200"
+  >
+    <app-upcoming />
+  </div>
+  <div
+    appScrollAnimation
+    animationType="fadeInRight"
+    animationDuration="800"
+    animationDelay="200"
+  >
+    <app-previous-events />
+  </div>
+  <div
+    appScrollAnimation
+    animationType="fadeIn"
+    animationDuration="800"
+    animationDelay="200"
+  >
+    <app-join-our-fb />
+  </div>
 </div>
 <!--container-->

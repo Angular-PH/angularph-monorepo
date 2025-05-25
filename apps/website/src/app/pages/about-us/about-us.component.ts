@@ -1,10 +1,11 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { FoundingComponent } from '../../sections/founding/founding.component';
 import { DataService } from '../../shared/services/data.service';
+import { ScrollAnimationDirective } from '../../shared/directives/scroll-animation.directive';
 
 @Component({
   selector: 'app-about-us',
-  imports: [FoundingComponent],
+  imports: [FoundingComponent, ScrollAnimationDirective],
   templateUrl: './about-us.component.html',
   styleUrl: './about-us.component.scss',
 })
