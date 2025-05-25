@@ -11,7 +11,9 @@
     <div class="card-body">
       <h2 class="card-title tracking-wide">{{ item.title }}</h2>
       <p class="t-xs tracking-wide">{{ item.description }}</p>
-      <p class="t-xs font-bold tracking-wide">{{ item.date | date: "short"}}</p>
+      <p class="t-xs font-bold tracking-wide">
+        {{ item.date | date : 'short' }}
+      </p>
       <div class="card-actions justify-end">
         <button class="btn btn-primary btn-sm tracking-wider">View</button>
       </div>

@@ -6,6 +6,7 @@ import { PreviousEventsComponent } from '../../sections/previous-events/previous
 import { UpcomingComponent } from '../../sections/upcoming/upcoming.component';
 import { OurteamComponent } from '../our-team/our-team.component';
 import { DataService } from '../../shared/services/data.service';
+import { ScrollAnimationDirective } from '../../shared/directives/scroll-animation.directive';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ import { DataService } from '../../shared/services/data.service';
     OurteamComponent,
     PreviousEventsComponent,
     JoinourfbComponent,
+    ScrollAnimationDirective,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
